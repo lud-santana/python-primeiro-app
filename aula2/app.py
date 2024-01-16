@@ -25,8 +25,11 @@ def escolher_opcao():
       elif opcao_escolhida == 3:
             print(f"Sua escolha foi {opcao_escolhida}.\n\n Ativando restaurante...\n")
 
-      else:
+      elif opcao_escolhida == 4:
             encerrar_app()
+      
+      else:
+            print("Opção inválida!")
 
 def encerrar_app():
      os.system("cls")
