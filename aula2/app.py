@@ -16,6 +16,23 @@ def exibir_opcoes():
 def escolher_opcao():
       opcao_escolhida = int(input("Escolha uma opção: "))
 
+      match opcao_escolhida:
+            case 1:
+                  print(f"Sua escolha foi {opcao_escolhida}.\n\n Cadastrando restaurante...\n")
+            
+            case 2:
+                  print(f"Sua escolha foi {opcao_escolhida}.\n\n listando restaurante...\n")
+            
+            case 3:
+                  print(f"Sua escolha foi {opcao_escolhida}.\n\n Ativando restaurante...\n")
+            case 4:
+                  encerrar_app()
+
+            case __:
+                  print("Opção inválida!")
+
+
+      """ utilizando Match como alternativa para o bloco de if/elif/else abaixo
       if opcao_escolhida == 1:
             print(f"Sua escolha foi {opcao_escolhida}.\n\n Cadastrando restaurante...\n")
 
@@ -29,7 +46,7 @@ def escolher_opcao():
             encerrar_app()
       
       else:
-            print("Opção inválida!")
+            print("Opção inválida!")"""
 
 def encerrar_app():
      os.system("cls")
