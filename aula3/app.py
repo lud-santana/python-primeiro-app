@@ -2,28 +2,30 @@ import os
 
 restaurantes = ["Junin das Arábias", "Carlos do Peixe"]
 
-def retorno_para_main():
+def retornar_ao_menu_principal():
     input("\nDigite uma tecla para retornar ao menu principal: ")
     main()
 
-def cadastrar_novo_restaurante():
+def exibir_subtitulo(texto):
     os.system("cls")
-    print("𝐶𝑎𝑑𝑎𝑠𝑡𝑟𝑜 𝑑𝑒 𝑛𝑜𝑣𝑜𝑠 𝑟𝑒𝑠𝑡𝑎𝑢𝑟𝑎𝑛𝑡𝑒𝑠 \n\n")
+    print(texto, "\n")
+
+def cadastrar_novo_restaurante():
+    exibir_subtitulo("𝐶𝑎𝑑𝑎𝑠𝑡𝑟𝑜 𝑑𝑒 𝑅𝑒𝑠𝑡𝑎𝑢𝑟𝑎𝑛𝑡𝑒𝑠")
 
     nome_do_restaurante = input("- Digite o nome do restaurante que deseja cadastrar: ")
     restaurantes.append(nome_do_restaurante)
 
     print("\nO restaurante {} foi cadastrado com sucesso!\n".format(nome_do_restaurante))
-    retorno_para_main()
+    retornar_ao_menu_principal()
 
 def listar_restaurantes():
-    os.system("cls")
-
-    print("𝐿𝑖𝑠𝑡𝑎𝑛𝑑𝑜 𝑟𝑒𝑠𝑡𝑎𝑢𝑟𝑎𝑛𝑡𝑒𝑠\n")
+    exibir_subtitulo("𝐿𝑖𝑠𝑡𝑎𝑛𝑑𝑜 𝑟𝑒𝑠𝑡𝑎𝑢𝑟𝑎𝑛𝑡𝑒𝑠")
+    
     for restaurante in restaurantes:
         print(f"- {restaurante}")
     
-    retorno_para_main()
+    retornar_ao_menu_principal()
 
 def ativar_restaurantes():
     pass
@@ -65,29 +67,28 @@ def escolher_opcao():
     except:
         opcao_invalida()
 
-""" utilizando Match como alternativa para o bloco de if/elif/else abaixo
-if opcao_escolhida == 1:
-    print(f"Sua escolha foi {opcao_escolhida}.\n\n Cadastrando restaurante...\n")
+    """ utilizando Match como alternativa para o bloco de if/elif/else abaixo
+    if opcao_escolhida == 1:
+        print(f"Sua escolha foi {opcao_escolhida}.\n\n Cadastrando restaurante...\n")
 
-elif opcao_escolhida == 2:
-    print(f"Sua escolha foi {opcao_escolhida}.\n\n listando restaurante...\n")
+    elif opcao_escolhida == 2:
+        print(f"Sua escolha foi {opcao_escolhida}.\n\n listando restaurante...\n")
 
-elif opcao_escolhida == 3:
-    print(f"Sua escolha foi {opcao_escolhida}.\n\n Ativando restaurante...\n")
+    elif opcao_escolhida == 3:
+        print(f"Sua escolha foi {opcao_escolhida}.\n\n Ativando restaurante...\n")
 
-elif opcao_escolhida == 4:
-    encerrar_app()
+    elif opcao_escolhida == 4:
+        encerrar_app()
 
-else:
-    print("Opção inválida!")"""
+    else:
+        print("Opção inválida!")"""
 
 def encerrar_app():
-    os.system("cls")
-    print("Finalizando app...\n\n")
+    exibir_subtitulo("𝐹𝑖𝑛𝑎𝑙𝑖𝑧𝑎𝑛𝑑𝑜 𝐴𝑝𝑝...")
 
 def opcao_invalida():
     print("Opção inválida!\n\n")
-    retorno_para_main()
+    retornar_ao_menu_principal()
 
 def main():
     os.system("cls")
