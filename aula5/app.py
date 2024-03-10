@@ -1,9 +1,9 @@
 import os
 
 restaurantes = [
-    {"nome": "Junin das Arábias", "categoria": "Árabe", "ativo": False}, 
-    {"nome": "Carlos do Peixe", "categoria": "Japonesa", "ativo": True},
-    {"nome": "Pizza da braba", "categoria": "Italiana", "ativo": False}
+    {"nome": "Junin das Arábias", "categoria": "Árabe", "estado": False}, 
+    {"nome": "Carlos do Peixe", "categoria": "Japonesa", "estado": True},
+    {"nome": "Pizza da braba", "categoria": "Italiana", "estado": False}
     ]
 
 def retornar_ao_menu_principal():
@@ -44,7 +44,7 @@ def cadastrar_novo_restaurante():
     dados_do_restaurante = {
         "nome": nome_do_restaurante,
         "categoria": categoria_restaurante,
-        "ativo": False
+        "estado": False
     }
     restaurantes.append(dados_do_restaurante)
 
@@ -63,9 +63,9 @@ def listar_restaurantes():
     for restaurante in restaurantes:
         nome_restaurante = restaurante["nome"]
         categoria_restaurante = restaurante["categoria"]
-        ativo = "Ativado" if restaurante["ativo"] else "Desativado"
+        estado = "Ativado" if restaurante["estado"] else "Desativado"
         
-        print(f"\n- {nome_restaurante.ljust(20)} - {categoria_restaurante.ljust(20)} - {ativo}", "\n", "-" * 65)
+        print(f"\n- {nome_restaurante.ljust(20)} - {categoria_restaurante.ljust(20)} - {estado}", "\n", "-" * 65)
     
     retornar_ao_menu_principal()
 
@@ -83,8 +83,8 @@ def alternar_estado_restaurante():
     for restaurante in restaurantes:
         if nome_restaurante == restaurante["nome"]:
             restaurante_encontrado = True
-            restaurante["ativo"] = not restaurante["ativo"]
-            mensagem = f"\nO restaurante {nome_restaurante} foi ativado com sucesso!" if restaurante["ativo"] else f"\nO restaurante {nome_restaurante} foi desativado com sucesso!"
+            restaurante["estado"] = not restaurante["estado"]
+            mensagem = f"\nO restaurante {nome_restaurante} foi ativado com sucesso!" if restaurante["estado"] else f"\nO restaurante {nome_restaurante} foi desativado com sucesso!"
             print(mensagem)
     
     if not restaurante_encontrado:
@@ -123,7 +123,6 @@ def escolher_opcao():
         match opcao_escolhida:
             case 1:
                 cadastrar_novo_restaurante()
-                #print(f"Sua escolha foi {opcao_escolhida}.\n\n Cadastrando restaurante...\n")
             
             case 2:
                 listar_restaurantes()
